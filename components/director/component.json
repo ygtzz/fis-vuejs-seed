@@ -1,0 +1,7 @@
+{
+    "repos": "https://github.com/flatiron/director",
+    "version": "v1.2.8",
+    "description": "A client Side/Server Side Router",
+    "name": "director",
+    "main": "director.js"
+}
