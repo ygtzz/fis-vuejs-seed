@@ -1,1 +1,0 @@
-define("widget/filter/datetime",function(e){var t=e("components/vue/vue");t.filter("datetime",function(e){var t=+new Date,n="",r=t-e;return n=864e5>=r?"大约"+Math.round((t-e)/36e5)+"小时以前":2592e6>r?Math.round((t-e)/864e5)+"天以前":31104e6>r?Math.round((t-e)/864e5/30)+"个月以前":"一年以前"})});

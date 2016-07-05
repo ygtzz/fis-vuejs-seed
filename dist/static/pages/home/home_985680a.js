@@ -1,1 +1,0 @@
-define("pages/home/home",function(e,n,t){var o=e("components/vue/vue");t.exports=o.extend({inherit:!0,template:"<p>FIS vueJS 简书DEMO</p>"})});
