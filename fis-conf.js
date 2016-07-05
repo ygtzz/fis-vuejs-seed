@@ -70,7 +70,7 @@ fis.media('prod')
         release:true,
         packTo: '/static/coms/com.css'
     })
-    .match('/components/**/vue.js', {
+    .match('/components/**.js', {
         release:true,
         packTo: '/static/coms/coms.js'
     })
