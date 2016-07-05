@@ -17,7 +17,6 @@ fis.match('**.scss', {
         
     })
 });
-
 // 添加css和image加载支持
 fis.match('*.{js,jsx,ts,tsx,es}', {
     preprocessor: [
@@ -71,9 +70,13 @@ fis.media('prod')
         release:true,
         packTo: '/static/coms/com.css'
     })
-    .match('/components/**.js', {
+    .match('/components/**/vue.js', {
         release:true,
         packTo: '/static/coms/coms.js'
+    })
+    .match('/components/vue/vue.js', {
+        release:true,
+        url: '/base/vue.min.js'
     })
     .match('/widget/**.{css,scss}', {
         packTo: '/static/widget/widget.css'

@@ -1,0 +1,1 @@
+define("widget/search/search",function(e,n,t){var a=e("components/vue/vue");t.exports=a.component("c-search",{template:'\r\n<input name="utf8" type="hidden" value="✓">\r\n<input v-model="search" type="text" name="q" id="q" placeholder="搜索" class="input-medium search-query">\r\n',data:function(){return{search:""}},watch:{search:function(e){this.$dispatch("search-change",e)}}})});
