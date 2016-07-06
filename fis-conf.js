@@ -64,7 +64,7 @@ fis.media('prod')
         useHash:true
     })
     .match(/\.png$/i, {
-    	optimizer: plugin('png-compressor')
+    	optimizer: fis.plugin('png-compressor')
   	})
     .match('/base/**', {
         optimizer: null,
