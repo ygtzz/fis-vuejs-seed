@@ -64,24 +64,29 @@ fis.media('prod')
         useHash:true
     })
     .match('/base/**', {
-     	optimizer: null,
-        useHash:false,
+        optimizer: null,
+        useHash: false
     })
     .match('/components/**', {
-        release: false
+        release:false
     })
-    .match('/components/**.{css,scss}', {
-        release:true,
+    .match('/components/(**.{css,scss})', {
+        release:'/static/components/$1',
         packTo: '/static/coms/com.css'
     })
-    .match('/components/**.js', {
-        release:true,
+    .match('/components/(**.js)', {
+        release:'/static/components/$1',
         packTo: '/static/coms/coms.js'
     })
+    .match('/components/mod/mod.js', {
+        packTo:false,
+        useHash:false,
+        url: '/static/base/mod.min.js'
+    })
     .match('/components/vue/vue.js', {
-        release:true,
-        packTo: false,
-        url: '/base/vue.min.js'
+        packTo:false,
+        useHash:false,
+        url: '/static/base/vue.min.js'
     })
     .match('/widget/**.{css,scss}', {
         packTo: '/static/widget/widget.css'
