@@ -63,6 +63,10 @@ fis.media('prod')
         optimizer: fis.plugin('uglify-js'),         
         useHash:true
     })
+    .match('/base/**', {
+     	optimizer: null,
+        useHash:false,
+    })
     .match('/components/**', {
         release: false
     })
@@ -76,6 +80,7 @@ fis.media('prod')
     })
     .match('/components/vue/vue.js', {
         release:true,
+        packTo: false,
         url: '/base/vue.min.js'
     })
     .match('/widget/**.{css,scss}', {
