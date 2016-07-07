@@ -11,6 +11,10 @@ fis.match('/{components,widget,pages}/**.js', {
     useSameNameRequire:true
 });
 
+fis.match('/components/mod/mod.js', {
+    isMod: false
+});
+
 fis.match('**.scss', {
     rExt: '.css',
     parser: fis.plugin('node-sass', {
@@ -79,14 +83,14 @@ fis.media('prod')
         packTo: '/static/coms/coms.js'
     })
     .match('/components/mod/mod.js', {
-        packTo:false,
-        useHash:false,
-        url: '/static/base/mod.min.js'
+        packOrder: -100
     })
     .match('/components/vue/vue.js', {
         packTo:false,
-        useHash:false,
-        url: '/static/base/vue.min.js'
+        url:'/components/vue/vue.min.js'
+    })
+    .match('/components/vue/vue.min.js', {
+        moduleId: 'components/vue/vue'
     })
     .match('/widget/**.{css,scss}', {
         packTo: '/static/widget/widget.css'
