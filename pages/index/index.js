@@ -40,6 +40,17 @@ window.app = new Vue({
             this.$broadcast('search-change', {
                 search: this.search
             });
+        },
+        article_id:function() {
+            console.log("article_id change",this.article_id);
+            this.$broadcast('cate-change', {
+                cate: this.cate,
+                type: this.type
+            });
+            this.$broadcast('type-change', {
+                cate: this.cate,
+                type: this.type
+            });
         }
     }
 });
@@ -56,6 +67,7 @@ function listHandler(view,type,cate){
         //参数
         app.$data.type = type;
         app.$data.cate = cate;
+        app.$data.article_id = '';
         app.currentView = view;
     });
 }
