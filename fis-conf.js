@@ -67,6 +67,9 @@ fis.media('prod')
         optimizer: fis.plugin('uglify-js'),         
         useHash:true
     })
+    .match(/\.png$/i, {
+    	optimizer: fis.plugin('png-compressor')
+  	})
     .match('/base/**', {
         optimizer: null,
         useHash: false
