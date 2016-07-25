@@ -26,6 +26,7 @@ router.map({
         component: Trend
     }
 });
+
 router.redirect({
     '/':'/hot/now',
     '*':'/error/notfound'
