@@ -4,7 +4,6 @@ var marked = require("marked");
 
 module.exports = Vue.extend({
     template: __inline('article.html'),
-    props:['type','cate','articleid'],
     data: function(){
         return {
             'article' : {
@@ -12,8 +11,10 @@ module.exports = Vue.extend({
             }
         }
     },
-    compiled : function(){
-        this.getArticleDetail(this['articleid']);
+    route:{
+        data:function(){                        
+            this.getArticleDetail(this.$route.params['article_id']);
+        }
     },
     methods : {
         getArticleDetail : function(id){

@@ -8,7 +8,7 @@
     <ul class="article-list top-notes">
         <li v-for="art in articles" :class="{'have-img':art.wrap_img}">
             <!-- 文章封面 -->
-            <a v-if="art.wrap_img" class="wrap-img" href="#p/{{ art.article_id }}">
+            <a v-link="{name:'article',params:{article_id:art.article_id}}" v-if="art.wrap_img" class="wrap-img" >
                 <img :src = "art.wrap_img" alt="300">
             </a>
             <div>
@@ -24,7 +24,7 @@
                     </span>
                 </p>
                 <h4 class="title">
-                    <a  href="#p/{{ art.article_id }}">
+                    <a v-link="{name:'article',params:{article_id:art.article_id}}" >
                         {{ art.title }}
                     </a>
                 </h4>
@@ -32,10 +32,10 @@
                     <img :src = "art.avatar">
                 </a>
                 <div class="list-footer">
-                    <a  href="#p/{{ art.article_id }}">
+                    <a v-link="{name:'article',params:{article_id:art.article_id}}" >
                         阅读 {{ art.read }}
                     </a>
-                    <a  href="#p/{{ art.article_id }}">
+                    <a v-link="{name:'article',params:{article_id:art.article_id}}" >
                         · 评论 {{ art.comment }}
                     </a>
                     · 喜欢 {{ art.like }}

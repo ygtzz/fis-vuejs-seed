@@ -6,6 +6,7 @@
   "dependencies": [
     "github:fis-components/jquery@1.8.3",
     "github:fis-components/vue@1.0.21",
-    "github:fis-components/director@v1.2.8"
+    "github:fis-components/director@v1.2.8",
+    "github:fis-components/vue-router@0.7.13"
   ]
 }

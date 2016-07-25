@@ -5,7 +5,7 @@ var datetime = require('filter/datetime.js');
 
 module.exports = Vue.component("c-list", {
     template: __inline('list.html'),
-    props:['cate','type'],
+    props:['type','cate'],
     data : function(){
         return {
             'cates' : [],
