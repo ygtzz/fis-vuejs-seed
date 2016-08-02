@@ -7,22 +7,19 @@ module.exports = Vue.extend({
     vuex: {
         getters: {
             article: function(state){
-                console.log(state.article);
-                return state.article;
+                console.log(state.article.article);
+                return state.article.article;
+            },
+            articleId: function(state){
+                return state.route.params['article_id'];
             }
         },
         actions:{
             fGetArticleDetail: actions.fGetArticleDetail
         }
     },
-    route: {
-        data: function() {
-            var id = this.$route.params['article_id'];
-            console.log('route id ' + id);
-            var stateId = this.store.state.route.params['article_id'];
-            console.log('state id ' + stateId);
-            this.fGetArticleDetail(id);
-        }
+    compiled: function () {
+        this.fGetArticleDetail(this.articleId);
     },
     filters: {
         marked: marked

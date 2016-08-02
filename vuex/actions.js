@@ -1,8 +1,8 @@
 var service = require("mock/service.js");
 
-function fGetArticleDetail(store) {
+function fGetArticleDetail(store,id) {
     var article = service.getArticleDetail(id, function(article) {
-        store.dispatch('getArticleDetail');
+        store.dispatch('getArticleDetail',article);
     })
 }
 
