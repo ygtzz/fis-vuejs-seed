@@ -1,27 +1,27 @@
 var Vue = require('vue');
-var service = require("mock/service.js");
 var marked = require("marked");
+var actions = require('vuex/actions');
 
 module.exports = Vue.extend({
     template: __inline('article.html'),
-    data: function(){
-        return {
-            'article' : {
-                'content' : ''
+    vuex: {
+        getters: {
+            article: function(state){
+                console.log(state.article);
+                return state.article;
             }
+        },
+        actions:{
+            fGetArticleDetail: actions.fGetArticleDetail
         }
     },
-    route:{
-        data:function(){                        
-            this.getArticleDetail(this.$route.params['article_id']);
-        }
-    },
-    methods : {
-        getArticleDetail : function(id){
-            var self = this;
-            var article = service.getArticleDetail(id,function(article){
-                self.$data.article = article;
-            })
+    route: {
+        data: function() {
+            var id = this.$route.params['article_id'];
+            console.log('route id ' + id);
+            var stateId = this.store.state.route.params['article_id'];
+            console.log('state id ' + stateId);
+            this.fGetArticleDetail(id);
         }
     },
     filters: {

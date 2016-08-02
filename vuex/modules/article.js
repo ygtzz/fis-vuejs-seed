@@ -1,11 +1,11 @@
-
-
 var state = {
-    article : { 'content' : ''}
+    article: { 'content': '' }
 }
 
 var mutations = {
-
+    'getArticleDetail': function(state, article) {
+        state.article = article;
+    }
 }
 
 module.exports = {

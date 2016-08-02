@@ -5,7 +5,7 @@ fis.hook('commonjs', {
     extList: ['.js', '.jsx', '.es', '.ts', '.tsx']
 });
 
-fis.match('/{components,widget,pages}/**.js', {
+fis.match('/{components,widget,pages,vuex}/**.js', {
     isMod: true,
     useSameNameRequire: true
 });
