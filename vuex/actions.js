@@ -1,9 +1,10 @@
 
 var service = require("mock/service.js");
+var types = require('mutation-types.js');
 
 function fGetArticleDetail(store,id) {
     var article = service.getArticleDetail(id, function(article) {
-        store.dispatch('getArticleDetail',article);
+        store.dispatch(types['getArticleDetail'],article);
     })
 }
 
@@ -44,18 +45,18 @@ function fGetCateList(store,type,cate){
     for (var i = 0; i < list.length; i++) {
         list[i]['active'] = list[i]['id'] == cate;
     };      
-    store.dispatch('getCateList',list);
+    store.dispatch(types['getCateList'],list);
 }
 
 function fGetArticleList (store,type,cate) {
     service.getArticleList(type,cate,function(articles){
-        store.dispatch('getArticleList',articles);
+        store.dispatch(types['getArticleList'],articles);
     })
 }
 
 function fSearchArticles(store,keyword){
     service.searchArticles(keyword,function(articles){
-        store.dispatch('searchArticles',articles);
+        store.dispatch(types['searchArticles'],articles);
     })
 }
 
