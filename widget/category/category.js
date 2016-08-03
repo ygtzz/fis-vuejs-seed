@@ -3,11 +3,14 @@ var Vue = require("vue");
 
 module.exports = Vue.component("c-category", {
     template: __inline('category.html'),
-    props:['show-loading','type','cates'],
-    ready: function(){
-        var self = this;
-    },
-    methods: {
-        
+    vuex: {
+        getters: {
+            type: function(state){
+                return state.route.params['type'];
+            },
+            cates: function(state){
+                return state.trend.cates;
+            }
+        }
     }
 });

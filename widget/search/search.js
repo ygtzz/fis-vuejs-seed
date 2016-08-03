@@ -1,5 +1,6 @@
 
 var Vue = require("vue");
+var actions = require('vuex/actions');
 
 module.exports = Vue.component("c-search", {
     template: __inline('./search.html'),
@@ -8,9 +9,15 @@ module.exports = Vue.component("c-search", {
     		search:''
     	};
     },
+	vuex: {
+        actions:{
+            fSearchArticles: actions.fSearchArticles
+        }
+    },
     watch:{
     	'search': function(val,oldVal) {
-    		this.$dispatch('search-change',val);
+			console.log('search ' + val);
+    		this.fSearchArticles(val);
     	}
     }
 });

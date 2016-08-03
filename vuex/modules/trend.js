@@ -2,8 +2,7 @@
 
 var state = {
     cates:[],
-    articles:[],
-    search:''
+    articles:[]
 }
 
 var mutations = {
@@ -14,7 +13,7 @@ var mutations = {
         state.articles = articles;
     },
     'searchArticles': function(state, articles) {
-        state.article = articles;
+        state.articles = articles;
     }
 }
 
