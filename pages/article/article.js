@@ -7,7 +7,6 @@ module.exports = Vue.extend({
     vuex: {
         getters: {
             article: function(state){
-                console.log(state.article.article);
                 return state.article.article;
             },
             articleId: function(state){
