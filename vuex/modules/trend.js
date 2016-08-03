@@ -1,4 +1,4 @@
-var types = require('mutation-types.js');
+var types = require('../mutation-types.js');
 var sGetCateType = types['getCateList'];
 var sGetArticleListType = types['getArticleList'];
 var sSearchType = types['searchArticles'];

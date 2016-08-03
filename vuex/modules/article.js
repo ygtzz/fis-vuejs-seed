@@ -1,4 +1,4 @@
-var types = require('mutation-types.js');
+var types = require('../mutation-types.js');
 var sGetArticleType = types['getArticleDetail'];
 
 var state = {

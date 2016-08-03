@@ -1,5 +1,5 @@
 
-moudle.exports = {
+module.exports = {
     'getCateList': 'getCateList',
     'getArticleList': 'getArticleList',
     'searchArticles': 'searchArticles',
