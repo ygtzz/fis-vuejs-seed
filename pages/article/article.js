@@ -18,8 +18,10 @@ module.exports = Vue.extend({
             fGetArticleDetail: actions.fGetArticleDetail
         }
     },
-    compiled: function () {
-        this.fGetArticleDetail(this.articleId);
+    route:{
+        data:function(){
+            this.fGetArticleDetail(this.articleId); 
+        }
     },
     filters: {
         marked: marked
