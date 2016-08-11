@@ -1,6 +1,5 @@
-
-var service = require("mock/service.js");
-var types = require('mutation-types.js');
+import service from 'mock/service';
+import types from 'mutation-types';
 
 function fGetArticleDetail(store,id) {
     var article = service.getArticleDetail(id, function(article) {
@@ -60,7 +59,7 @@ function fSearchArticles(store,keyword){
     })
 }
 
-module.exports = {
+export default {
     fGetArticleDetail:fGetArticleDetail,
     fGetCateList:fGetCateList,
     fGetArticleList:fGetArticleList,

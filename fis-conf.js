@@ -5,9 +5,13 @@ fis.hook('commonjs', {
     extList: ['.js', '.jsx', '.es', '.ts', '.tsx']
 });
 
-fis.match('/{components,widget,pages,vuex,route}/**.js', {
+fis.match('/{components,widget,pages,vuex,route}/**.{js,es}', {
     isMod: true,
     useSameNameRequire: true
+});
+
+fis.match('**.vue',{
+    isHtmlLike: true
 });
 
 fis.match('/components/mod/mod.js', {
@@ -20,6 +24,15 @@ fis.match('**.scss', {
 
     })
 });
+
+// 编译所有后缀为 jsx,es 的文件为 js
+fis.match('{*.jsx,*:jsx,*.es}', {
+    parser: fis.plugin('babel-5.x', {
+        sourceMaps: true
+    }),
+    rExt: '.js'
+});
+
 // 添加css和image加载支持
 fis.match('*.{js,jsx,ts,tsx,es}', {
     preprocessor: [

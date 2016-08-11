@@ -1,12 +1,10 @@
-var Vue = require('vue');
-var actions = require('vuex/actions');
+import Vue from 'vue';
+import actions from 'vuex/actions';
+import 'category/category';
+import 'list/list';
+import 'search/search';
 
-require('category/category.js');
-require('list/list.js');
-require('search/search.js');
-
-
-module.exports = Vue.extend({
+export default Vue.extend({
     inherit: true, //集成父元素所有属性
     template: __inline('trend.html'),
     vuex: {

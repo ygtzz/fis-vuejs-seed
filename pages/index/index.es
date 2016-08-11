@@ -2,11 +2,11 @@
  * Boot up the Vue instance and wire up the router.
  */
 
-var Vue = require('vue');
-var VueSync = require('vuex-router-sync');
-var store = require('vuex/store');
-var router = require('route/router');
-var footer = require('footer/footer.js');
+import Vue from 'vue';
+import VueSync from 'vuex-router-sync';
+import store from 'vuex/store';
+import router from 'route/router';
+import footer from 'footer/footer';
 
 var App = Vue.extend({
     store: store

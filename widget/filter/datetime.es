@@ -1,5 +1,5 @@
 
-var Vue = require("vue");
+import Vue from "vue";
 
 Vue.filter('datetime', function (date) {
     var now = +new Date;

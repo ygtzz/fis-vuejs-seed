@@ -1,9 +1,9 @@
 
-var Vue = require("vue");
-var service = require("mock/service.js");
-var datetime = require('filter/datetime.js');
+import Vue from "vue";
+import service from "mock/service";
+import datetime from 'filter/datetime';
 
-module.exports = Vue.component("c-list", {
+export default Vue.component("c-list", {
     template: __inline('list.html'),
     vuex: {
         getters: {

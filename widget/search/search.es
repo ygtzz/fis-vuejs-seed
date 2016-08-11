@@ -1,8 +1,8 @@
 
-var Vue = require("vue");
-var actions = require('vuex/actions');
+import Vue from "vue";
+import actions from 'vuex/actions';
 
-module.exports = Vue.component("c-search", {
+export default Vue.component("c-search", {
     template: __inline('./search.html'),
     data: function(){
     	return {

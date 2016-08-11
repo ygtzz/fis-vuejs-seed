@@ -1,8 +1,8 @@
-var Vue = require('vue');
-var VueRouter = require('vue-router');
-var Trend = require('pages/trend/trend.js');
-var Article = require('pages/article/article.js');
-var Notfound = require('pages/error/notfound.js');
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Trend from 'pages/trend/trend';
+import Article from 'pages/article/article';
+import Notfound from 'pages/error/notfound';
 
 Vue.use(VueRouter);
 
@@ -21,4 +21,4 @@ router.map({
     }
 });
 
-module.exports = router;
+export default router;

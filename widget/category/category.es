@@ -1,7 +1,7 @@
 
-var Vue = require("vue");
+import Vue from "vue";
 
-module.exports = Vue.component("c-category", {
+export default Vue.component("c-category", {
     template: __inline('category.html'),
     vuex: {
         getters: {

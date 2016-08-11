@@ -1,5 +1,5 @@
 
-module.exports = {
+export default {
     'getCateList': 'getCateList',
     'getArticleList': 'getArticleList',
     'searchArticles': 'searchArticles',

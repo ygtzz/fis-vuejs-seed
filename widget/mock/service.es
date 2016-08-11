@@ -172,7 +172,7 @@ function getArticleDetail(id,cb){
 }
 
 
-module.exports = {
+export default {
     getArticleList : getArticleList,
     searchArticles : searchArticles,
     getArticleDetail : getArticleDetail

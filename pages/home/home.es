@@ -1,8 +1,6 @@
-var Vue = require('vue');
+import Vue from 'vue';
 
-
-
-module.exports = Vue.extend({
+export default Vue.extend({
     inherit: true, //集成父元素所有属性
     template: __inline('home.html')
 });

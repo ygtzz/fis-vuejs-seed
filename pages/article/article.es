@@ -1,8 +1,8 @@
-var Vue = require('vue');
-var marked = require("marked");
-var actions = require('vuex/actions');
+import Vue from 'vue';
+import marked from "marked";
+import actions from 'vuex/actions';
 
-module.exports = Vue.extend({
+export default Vue.extend({
     template: __inline('article.html'),
     vuex: {
         getters: {
