@@ -77,10 +77,15 @@ fis.media('prod')
     .match('::package', {
         packager: fis.plugin('deps-pack', {
             'pkg/vue.all.js':[
-    
+                "node_modules/vue/dist/vue.common.js",
+                "node_modules/vuex/dist/vuex.js",
+                "node_modules/vue-router/dist/vue-router.js",                
+                "node_modules/vuex-router-sync/index.js",
             ],
             'pkg/npm.js': [
                 sModPath + '/pages/index/index.es:deps',
+                sModPath + '/pages/trend/trend.es:deps',                                
+                sModPath + '/pages/atricle/atricle.es:deps',
                 '!' + sModPath + '/**'
             ],
             'pkg/index.js': [
