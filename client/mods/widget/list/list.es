@@ -1,7 +1,7 @@
 
 import Vue from "vue";
 import service from "mock/service";
-import datetime from 'filter/datetime';
+import datetime from 'widget/filter/datetime';
 
 export default Vue.component("c-list", {
     template: __inline('list.html'),

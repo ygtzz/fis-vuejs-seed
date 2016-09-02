@@ -1,129 +1,108 @@
-fis.set('project.ignore', ['node_modules/**', 'fis-conf.js', 'component.json', 'README.md']);
 
-fis.hook('commonjs', {
-    baseUrl: './widget',
-    extList: ['.js', '.jsx', '.es', '.ts', '.tsx']
+fis.set('project.ignore',['node_modules/**', 'fis-conf.js','component.json','README.md']);
+//fis.set('project.files', 'mod/pages/index/index.html'); // 按需编译
+
+var sModPath = 'client/mods';
+
+fis.unhook('components');
+fis.hook('node_modules');
+fis.hook('commonjs',{
+    baseUrl: sModPath,
+	extList: ['.js', '.jsx', '.es', '.ts', '.tsx']
 });
 
-fis.match('/{components,widget,pages,vuex,route}/**.{js,es}', {
-    isMod: true,
-    useSameNameRequire: true
+fis.match('/{node_modules,' + sModPath + '}/**.{js,jsx,es}', {
+    isMod: true
 });
 
-fis.match('**.vue',{
-    isHtmlLike: true
+fis.match(sModPath + '/**.{js,jsx,es}', {
+    useSameNameRequire:true
 });
 
-fis.match('/components/mod/mod.js', {
-    isMod: false
+fis.match('client/static/(**)',{
+    release: '/static/$1'
 });
 
 fis.match('**.scss', {
     rExt: '.css',
     parser: fis.plugin('node-sass', {
-
+        
     })
 });
-
-// 编译所有后缀为 jsx,es 的文件为 js
+// 编译所有后缀为 jsx 的文件为 js
 fis.match('{*.jsx,*:jsx,*.es}', {
     parser: fis.plugin('babel-5.x', {
         sourceMaps: true
     }),
     rExt: '.js'
 });
-
 // 添加css和image加载支持
 fis.match('*.{js,jsx,ts,tsx,es}', {
     preprocessor: [
-        fis.plugin('js-require-css'),
-        fis.plugin('js-require-file', {
-            useEmbedWhenSizeLessThan: 3 * 1024 // 小于3k用base64
-        })
+      fis.plugin('js-require-css'),
+      fis.plugin('js-require-file', {
+        useEmbedWhenSizeLessThan: 3 * 1024 // 小于3k用base64
+      })
     ]
 });
 
-fis.match('**', {
-    release: '/static/$0'
-});
-
-fis.match("pages/index/(*.html)", {
+fis.match(sModPath + "/pages/index/(*.html)",{
     release: '/$1',
-    useCache: false
-});
-
-fis.match("/static/(**)", {
-    release: '/static/$1'
+    useCache : false
 });
 
 fis.match('::package', {
-    postpackager: fis.plugin('loader', {
+    postpackager: fis.plugin('loader',{
         resourceType: 'mod',
         useInlineMap: true
     })
 });
 
-fis.set('baseUrl', 'http://cdn.com');
-fis.set('cssPath', fis.get('baseUrl') + '/css/xpromt/efmp');
-fis.set('jsPath', fis.get('baseUrl') + '/js/xpromt/efmp');
-fis.set('imgPath', fis.get('baseUrl') + '/images/xpromt/efmp');
-
 fis.media('prod')
     .match('**.{css,scss}', {
         optimizer: fis.plugin('clean-css'),
-        useHash: true,
-        useSprite: true
-            //domain:fis.get('cssPath')
+        useHash:true,
+        useSprite:true
     })
-    .match('**.js', {
-        optimizer: fis.plugin('uglify-js'),
-        useHash: true
+    .match('**.{js,es,jsx}',{
+        optimizer: fis.plugin('uglify-js'),         
+        useHash:true
     })
     .match(/\.png$/i, {
-        optimizer: fis.plugin('png-compressor')
-    })
-    .match('/base/**', {
-        optimizer: null,
+    	optimizer: fis.plugin('png-compressor')
+  	})
+    .match('node_modules/**',{
         useHash: false
     })
-    .match('/components/**', {
-        release: false
-    })
-    .match('/components/(**.{css,scss})', {
-        release: '/static/components/$1',
-        packTo: '/static/coms/com.css'
-    })
-    .match('/components/(**.js)', {
-        release: '/static/components/$1',
-        packTo: '/static/coms/coms.js'
-    })
-    .match('/components/mod/mod.js', {
-        packOrder: -100
-    })
-    .match('/components/vue/vue.min.js', {
-        moduleId: 'components/vue/vue'
-    })
-    .match('/components/**/vue*.js', {
-        packTo: '/static/coms/com-vue.js'
-    })
-    .match('/components/vue/vue.js', {
-        packTo: false
-    })
-    .match('/widget/**.{css,scss}', {
-        packTo: '/static/widget/widget.css'
-    })
-    .match('/widget/(**).js', {
-        packTo: '/static/widget/widget.js'
-    })
-    .match('/pages/(**)/(*).{css,scss}', {
-        packTo: '/static/pages/page.css'
-    })
-    .match('/pages/(**)/(*).js', {
-        packTo: '/static/pages/page.js'
-    })
-    // .match('/static/**.{css,scss}', {
-    //     useHash:true
-    // })
-    // .match('/static/**.js', {
-    //     //domain:fis.get('jsPath')
-    // });
+    .match('::package', {
+        packager: fis.plugin('deps-pack', {
+            'pkg/vue.all.js':[
+    
+            ],
+            'pkg/npm.js': [
+                sModPath + '/pages/index/index.es:deps',
+                '!' + sModPath + '/**'
+            ],
+            'pkg/index.js': [
+                sModPath + '/pages/index/index.es',
+                sModPath + '/pages/index/index.es:deps'
+            ],
+            'pkg/index.css': [
+                sModPath + '/pages/index/index.es:deps'
+            ],
+            'pkg/trend.js': [
+                sModPath + '/pages/trend/trend.es',
+                sModPath + '/pages/trend/trend.es:deps'
+            ],
+            'pkg/trend.css': [
+                sModPath + '/pages/trend/trend.es:deps'
+            ],
+            'pkg/article.js': [
+                sModPath + '/pages/article/article.es',
+                sModPath + '/pages/article/article.es:deps'
+            ],
+            'pkg/article.css': [
+                sModPath + '/pages/article/article.es:deps'
+            ]
+        })
+    });

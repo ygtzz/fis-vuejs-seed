@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import actions from 'vuex/actions';
-import 'category/category';
-import 'list/list';
-import 'search/search';
+import 'widget/category/category';
+import 'widget/list/list';
+import 'widget/search/search';
 
 export default Vue.extend({
     inherit: true, //集成父元素所有属性

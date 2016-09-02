@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import marked from "marked";
+import marked from "widget/marked/marked";
 import actions from 'vuex/actions';
 
 export default Vue.extend({
