@@ -1,7 +1,3 @@
-/**
- * Boot up the Vue instance and wire up the router.
- */
-
 import Vue from 'vue';
 import VueSync from 'vuex-router-sync';
 import store from 'vuex/store';

@@ -1,0 +1,28 @@
+{
+  "name": "fis-vuejs-seed",
+  "version": "1.0.0",
+  "description": "a vue project boilerplate",
+  "main": "fis-conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ygtzz/fis-vuejs-seed.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "ygtzz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ygtzz/fis-vuejs-seed/issues"
+  },
+  "homepage": "https://github.com/ygtzz/fis-vuejs-seed#readme",
+  "dependencies": {
+    "vue": "^1.0.26",
+    "vue-router": "^0.7.13",
+    "vuex": "^1.0.0-rc.2",
+    "vuex-router-sync": "^2.1.0"
+  }
+}
