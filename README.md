@@ -1,7 +1,7 @@
 ## fis-vuejs-seed
 
 ###技术栈
-* vuejs
+* vue
 * vue-router
 * vuex
 
