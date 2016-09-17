@@ -7,7 +7,7 @@
     "start": "fis3 release -cd ./dist && fis3 server start --www dist --no-daemon",
     "serve": "fis3 server start --www dist --no-daemon",
     "build": "rm -rf dist && fis3 release -cd dist",
-    "dev": "rm -rf dist && fis3 release -cwd dist",
+    "dev": "npm run build && npm run serve",
     "release": "rm -rf dist && fis3 release prod -cd dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/ygtzz/fis-vuejs-seed#readme",
   "dependencies": {
+    "mint-ui": "^0.2.8",
     "vue": "^1.0.26",
     "vue-router": "^0.7.13",
     "vuex": "^1.0.0-rc.2",
-    "vuex-router-sync": "^2.1.0",
-    "vux": "^0.1.3"
+    "vuex-router-sync": "^2.1.0"
   }
 }
