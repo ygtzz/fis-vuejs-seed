@@ -28,6 +28,7 @@
     "vue": "^1.0.26",
     "vue-router": "^0.7.13",
     "vuex": "^1.0.0-rc.2",
-    "vuex-router-sync": "^2.1.0"
+    "vuex-router-sync": "^2.1.0",
+    "vux": "^0.1.3"
   }
 }
