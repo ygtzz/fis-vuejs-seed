@@ -4,6 +4,9 @@
 * vue
 * vue-router
 * vuex
+* es6
+* babel
+* fis3
 
 ###开始
 
